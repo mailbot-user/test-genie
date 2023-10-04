@@ -197,7 +197,7 @@ if "document" in st.session_state:
     col1, col2 = st.columns(2)
     with col1:
         if st.button('View File', key='1'):
-            show_pdf(st.session_state.document_path)
+            show_pdf(st.session_state.tmp_file.name)
     with col2:
         st.button('Close File', key='2')
 
