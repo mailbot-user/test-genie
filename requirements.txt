@@ -1,0 +1,7 @@
+streamlit
+PyPDF2
+streamlit-extras
+openai
+pandas
+streamlit-aggrid
+python-dotenv
