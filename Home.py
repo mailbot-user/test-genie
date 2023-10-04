@@ -14,9 +14,6 @@ from dotenv import load_dotenv, find_dotenv
 from pathlib import Path
 import tempfile
 
-# read local .env file
-_ = load_dotenv(find_dotenv())
-
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 delimiter_1 = """####"""
@@ -190,10 +187,10 @@ if pdf_file:
 
 # if there's document, proceed to generate testcases
 if "document" in st.session_state:
-    time.sleep(0.1)
     with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
         fp = Path(tmp_file.name)
         fp.write_bytes(pdf_file.getvalue())
+    time.sleep(0.1)
     col1, col2 = st.columns(2)
     with col1:
         if st.button('View File', key='1'):
